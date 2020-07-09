@@ -8,6 +8,7 @@ nextflow.preview.dsl=2
 Module inclusions
 -------------------------------------------------------------------------------------------------------------------------------*/
 
+include { check_max; build_debug_param_summary; luslab_header; check_params } from './luslab-nf-modules/tools/luslab_util/main.nf' /** required **/
 include { guppy } from './luslab-nf-modules/tools/guppy/main.nf'
 
 /*-----------------------------------------------------------------------------------------------------------------------------
