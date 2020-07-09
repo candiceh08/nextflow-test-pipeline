@@ -46,3 +46,5 @@ workflow {
 
   fastqc( simple_metadata.out.ch_metadata )
 }
+workflow.onComplete {
+}
