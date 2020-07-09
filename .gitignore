@@ -1,0 +1,8 @@
+.DS_Store
+.nextflow*
+**/work
+results/
+results
+.*.log*/
+*.log
+.cache/*
