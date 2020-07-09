@@ -8,7 +8,7 @@ Module inclusions
 -------------------------------------------------------------------------------------------------------------------------------*/
 
 include { check_max; build_debug_param_summary; luslab_header; check_params } from './luslab-nf-modules/tools/luslab_util/main.nf' /** required **/
-include { guppy } from './luslab-nf-modules/tools/guppy/main.nf'
+include { guppy_basecaller } from './luslab-nf-modules/tools/guppy/main.nf'
 
 /*-----------------------------------------------------------------------------------------------------------------------------
 Parameters
@@ -43,8 +43,6 @@ Main workflow
 // Run workflow
 workflow {
   guppy_basecaller( params.input )
-
-  fastqc( simple_metadata.out.ch_metadata )
 }
 workflow.onComplete {
 }
