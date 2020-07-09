@@ -16,8 +16,6 @@ Parameters
 
 // Guppy parameters
 params.input = "/Users/candicehermant/dev/data/genomic_assembly/rel3_fast5_subset"
-//params.guppy_flowcell = "FLO-MIN106"
-//params.guppy_kit = "SQK-LSK108"
 
 /*-----------------------------------------------------------------------------------------------------------------------------
 Init
