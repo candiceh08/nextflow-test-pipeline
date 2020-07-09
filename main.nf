@@ -1,4 +1,3 @@
-
 #!/usr/bin/env nextflow
 
 // Define DSL2
