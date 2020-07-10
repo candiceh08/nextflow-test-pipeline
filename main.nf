@@ -7,6 +7,7 @@ nextflow.preview.dsl=2
 Module inclusions
 -------------------------------------------------------------------------------------------------------------------------------*/
 
+include simple_metadata from './luslab-nf-modules/tools/metadata/main.nf'
 include { check_max; build_debug_param_summary; luslab_header } from './luslab-nf-modules/tools/luslab_util/main.nf' /** required **/
 include { guppy_basecaller } from './luslab-nf-modules/tools/guppy/main.nf' addParams (guppy_flowcell: 'FLO-MIN106', guppy_kit: 'SQK-LSK108')
 
@@ -27,10 +28,10 @@ if(params.verbose)
     log.info build_debug_param_summary()
 
 // Show work summary
-//def summary = [:]
-//summary['Metadata file'] = params.input
-//log.info summary.collect { k,v -> "${k.padRight(18)}: $v" }.join("\n")
-//log.info "-\033[2m------------------------------------------------------------------------\033[0m-"
+def summary = [:]
+summary['Metadata file'] = params.input
+log.info summary.collect { k,v -> "${k.padRight(18)}: $v" }.join("\n")
+log.info "-\033[2m------------------------------------------------------------------------\033[0m-"
 
 // Check inputs
 //check_params(["input"])
@@ -41,5 +42,7 @@ Main workflow
 
 // Run workflow
 workflow {
-  guppy_basecaller( params.input )
+  simple_metadata ( params.input )
+
+  guppy_basecaller( simple_metadata.out.metadata )
 }
