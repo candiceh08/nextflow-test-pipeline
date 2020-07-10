@@ -42,7 +42,5 @@ Main workflow
 
 // Run workflow
 workflow {
-  simple_metadata ( params.input )
-
-  guppy_basecaller( simple_metadata.out.metadata )
+  guppy_basecaller( params.input )
 }
