@@ -27,10 +27,10 @@ if(params.verbose)
     log.info build_debug_param_summary()
 
 // Show work summary
-def summary = [:]
-summary['Metadata file'] = params.input
-log.info summary.collect { k,v -> "${k.padRight(18)}: $v" }.join("\n")
-log.info "-\033[2m------------------------------------------------------------------------\033[0m-"
+//def summary = [:]
+//summary['Metadata file'] = params.input
+//log.info summary.collect { k,v -> "${k.padRight(18)}: $v" }.join("\n")
+//log.info "-\033[2m------------------------------------------------------------------------\033[0m-"
 
 // Check inputs
 //check_params(["input"])
@@ -42,6 +42,4 @@ Main workflow
 // Run workflow
 workflow {
   guppy_basecaller( params.input )
-}
-workflow.onComplete {
 }
