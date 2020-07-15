@@ -13,4 +13,7 @@ ml Graphviz
 nextflow pull candiceh08/nextflow-test-pipeline
 
 ## RUN PIPELINE
-nextflow run candiceh08/nextflow-test-pipeline
+nextflow run candiceh08/nextflow-test-pipeline \
+-profile crick \
+--num_gpus 1 \
+--input '/camp/lab/luscomben/home/users/hermanc/projects/test_pipeline/rel3_fast5_subset'
