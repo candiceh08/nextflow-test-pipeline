@@ -44,7 +44,7 @@ Main workflow
 // Run workflow
 workflow {
   // Run guppy_basecaller
-    guppy_basecaller ( ch_fast5 )
+    guppy_basecaller ( params.input )
     guppy_qc ( guppy_basecaller.out.summary )
 
     // Collect file names and view output
