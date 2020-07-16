@@ -10,6 +10,7 @@ Module inclusions
 include simple_metadata from './luslab-nf-modules/tools/metadata/main.nf'
 include { check_max; build_debug_param_summary; luslab_header } from './luslab-nf-modules/tools/luslab_util/main.nf' /** required **/
 include { guppy_basecaller } from './luslab-nf-modules/tools/guppy/main.nf' addParams (guppy_flowcell: 'FLO-MIN106', guppy_kit: 'SQK-LSK108')
+include { guppy_qc } from './luslab-nf-modules/tools/guppy/main.nf'
 
 /*-----------------------------------------------------------------------------------------------------------------------------
 Parameters
@@ -42,5 +43,11 @@ Main workflow
 
 // Run workflow
 workflow {
-  guppy_basecaller( params.input )
+  // Run guppy_basecaller
+    guppy_basecaller ( ch_fast5 )
+    guppy_qc ( guppy_basecaller.out.summary )
+
+    // Collect file names and view output
+    guppy_basecaller.out.basecalledSeq | view
+    guppy_qc.out.report | view
 }
