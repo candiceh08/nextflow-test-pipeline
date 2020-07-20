@@ -46,8 +46,4 @@ workflow {
   // Run guppy_basecaller
     guppy_basecaller ( params.input )
     guppy_qc ( guppy_basecaller.out.summary )
-
-    // Collect file names and view output
-    guppy_basecaller.out.basecalledSeq | view
-    guppy_qc.out.report | view
 }
